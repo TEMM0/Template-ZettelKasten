@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
 import time
 import os
+import sys
 
 
 class Note:
@@ -28,8 +29,6 @@ class Note:
     file.close()
     
 
-metafile = open("metadata", "w")
-metafile.close()
 
 metafile = open("metadata", "r")
 saved_vault = metafile.readline()
@@ -40,7 +39,7 @@ if not vault_path:
     sys.exit(0)
 
 metafile = open("metadata", "w")
-print(vault_path)
+
 metafile.write(vault_path)
 metafile.close()
 
