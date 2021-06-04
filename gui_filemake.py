@@ -30,8 +30,13 @@ class Note:
     
 
 
-metafile = open("metadata", "r")
-saved_vault = metafile.readline()
+try: 
+  metafile = open("metadata", "r")
+  saved_vault = metafile.readline() 
+except:
+  metafile = open("metadata", "w")
+  saved_vault = "No Path Specified Yet" 
+
 metafile.close()
 vault_path = sg.popup_get_folder('Choose location of vault', default_path=saved_vault)
 
